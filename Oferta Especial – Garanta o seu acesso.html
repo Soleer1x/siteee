@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Oferta Especial – Garanta o seu acesso</title>
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#0f172a; --surface:#1e293b; --text:#f8fafc; --muted:#94a3b8;
+  --accent:#22c55e; --accent-text:#052e16; --highlight:#facc15; --border:#334155;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#f8fafc; --surface:#ffffff; --text:#0f172a; --muted:#475569;
+    --accent:#16a34a; --accent-text:#ffffff; --highlight:#b45309; --border:#e2e8f0;
+    color-scheme:light;
+  }
+}
+:root[data-theme="dark"]{--bg:#0f172a;--surface:#1e293b;--text:#f8fafc;--muted:#94a3b8;--accent:#22c55e;--accent-text:#052e16;--highlight:#facc15;--border:#334155;}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.6}
+.wrap{max-width:760px;margin:0 auto;padding:24px 18px}
+h1{font-size:clamp(1.7rem,6vw,2.5rem);line-height:1.15;text-align:center;margin:8px 0 12px}
+h1 span{color:var(--highlight)}
+.sub{text-align:center;color:var(--muted);font-size:1.05rem;margin:0 0 22px}
+.video{position:relative;padding-top:56.25%;border-radius:14px;overflow:hidden;background:#000;border:1px solid var(--border)}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.jump{display:block;text-align:center;margin:18px 0 6px;font-weight:700;color:var(--accent);text-decoration:underline;font-size:1.1rem}
+h2{font-size:1.6rem;text-align:center;margin:44px 0 18px}
+.cards{display:grid;gap:12px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 18px}
+.card b{display:block;margin-bottom:4px}
+.card p{margin:0;color:var(--muted)}
+.check{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.check li{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 14px 12px 44px;position:relative}
+.check li::before{content:"✓";position:absolute;left:14px;top:12px;color:var(--accent);font-weight:900}
+.offer{margin-top:48px;background:var(--surface);border:2px solid var(--accent);border-radius:18px;padding:28px 20px;text-align:center}
+.offer .tag{display:inline-block;background:var(--highlight);color:#111;font-weight:800;border-radius:999px;padding:4px 14px;font-size:.85rem}
+.price-old{color:var(--muted);text-decoration:line-through;margin:14px 0 0}
+.price{font-size:clamp(2.6rem,12vw,4rem);font-weight:900;color:var(--accent);line-height:1.1;margin:4px 0}
+.price small{font-size:.4em;font-weight:700;color:var(--text)}
+.btn{display:block;background:var(--accent);color:var(--accent-text);font-weight:900;font-size:1.2rem;text-decoration:none;padding:18px 20px;border-radius:12px;margin:20px auto 10px;max-width:420px;box-shadow:0 8px 24px rgba(34,197,94,.3);transition:transform .15s}
+.btn:hover{transform:scale(1.03)}
+.note{color:var(--muted);font-size:.9rem;margin:6px 0 0}
+footer{text-align:center;color:var(--muted);font-size:.8rem;padding:30px 0 10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Descubra como <span>transformar seus resultados</span> começando hoje mesmo</h1>
+  <p class="sub">Assista ao vídeo abaixo e entenda tudo em poucos minutos.</p>
+
+  <div class="video">
+    <iframe src="https://player.vimeo.com/video/1134704010?fl=pl&fe=cm&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Vídeo de apresentação"></iframe>
+  </div>
+
+  <p class="note" style="text-align:center;margin-top:10px">O vídeo não carregou? <a href="https://vimeo.com/1134704010?fl=pl&fe=cm" target="_blank" rel="noopener" style="color:var(--accent)">Assista direto no Vimeo</a></p>
+
+  <a class="jump" href="#comprar">👇 Quero ir direto para a oferta</a>
+
+  <h2>Por que isso é para você?</h2>
+  <div class="cards">
+    <div class="card"><b>Simples de começar</b><p>Acesso imediato e passo a passo fácil de seguir, mesmo para iniciantes.</p></div>
+    <div class="card"><b>Direto ao ponto</b><p>Sem enrolação: conteúdo prático para você aplicar logo no primeiro dia.</p></div>
+    <div class="card"><b>Preço que cabe no bolso</b><p>Um investimento pequeno para um conteúdo que pode mudar o seu jogo.</p></div>
+  </div>
+
+  <h2>O que você recebe</h2>
+  <ul class="check">
+    <li>Acesso imediato após a confirmação do pagamento</li>
+    <li>Conteúdo completo e organizado</li>
+    <li>Pagamento 100% seguro</li>
+    <li>Suporte para tirar suas dúvidas</li>
+  </ul>
+
+  <section class="offer" id="comprar">
+    <span class="tag">OFERTA ESPECIAL</span>
+    <p class="price-old">De R$ 49,90 por apenas</p>
+    <div class="price"><small>R$</small> 17,90</div>
+    <p class="note">Pagamento único • Acesso imediato</p>
+    <a class="btn" href="https://pay.cakto.com.br/3eyzxw5_1301681" target="_blank" rel="noopener">QUERO GARANTIR AGORA</a>
+    <p class="note">🔒 Compra segura e protegida</p>
+  </section>
+
+  <footer>© Todos os direitos reservados.</footer>
+</div>
+</body>
+</html>
