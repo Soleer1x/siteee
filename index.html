@@ -9,75 +9,128 @@
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px);
   padding-bottom:env(safe-area-inset-bottom,0px);
-  --bg:#0f172a; --surface:#1e293b; --text:#f8fafc; --muted:#94a3b8;
-  --accent:#22c55e; --accent-text:#052e16; --highlight:#facc15; --border:#334155;
+  --bg:#0b1020; --bg2:#121a33; --surface:#172041; --text:#f8fafc; --muted:#a5b0cc;
+  --accent:#22c55e; --accent2:#16a34a; --accent-text:#04230f; --gold:#fbbf24; --border:#2a3560; --red:#ef4444;
   color-scheme:dark;
 }
 @media (prefers-color-scheme: light){
   :root:not([data-theme="dark"]){
-    --bg:#f8fafc; --surface:#ffffff; --text:#0f172a; --muted:#475569;
-    --accent:#16a34a; --accent-text:#ffffff; --highlight:#b45309; --border:#e2e8f0;
+    --bg:#f4f6fb; --bg2:#e9edf8; --surface:#ffffff; --text:#0f172a; --muted:#475569;
+    --accent:#16a34a; --accent2:#15803d; --accent-text:#ffffff; --gold:#b45309; --border:#d9e0f0; --red:#dc2626;
     color-scheme:light;
   }
 }
-:root[data-theme="dark"]{--bg:#0f172a;--surface:#1e293b;--text:#f8fafc;--muted:#94a3b8;--accent:#22c55e;--accent-text:#052e16;--highlight:#facc15;--border:#334155;}
+:root[data-theme="dark"]{--bg:#0b1020;--bg2:#121a33;--surface:#172041;--text:#f8fafc;--muted:#a5b0cc;--accent:#22c55e;--accent2:#16a34a;--accent-text:#04230f;--gold:#fbbf24;--border:#2a3560;--red:#ef4444}
 html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.6}
-.wrap{max-width:760px;margin:0 auto;padding:24px 18px}
-h1{font-size:clamp(1.7rem,6vw,2.5rem);line-height:1.15;text-align:center;margin:8px 0 12px}
-h1 span{color:var(--highlight)}
-.sub{text-align:center;color:var(--muted);font-size:1.05rem;margin:0 0 22px}
-.video{position:relative;padding-top:56.25%;border-radius:14px;overflow:hidden;background:#000;border:1px solid var(--border)}
+body{margin:0;background:radial-gradient(1000px 500px at 50% -100px,var(--bg2),var(--bg));background-color:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.6}
+.wrap{max-width:780px;margin:0 auto;padding:20px 18px 90px}
+.top{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.pill{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:6px 14px;font-size:.85rem;font-weight:600}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--red);animation:pulse 1.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(239,68,68,.7)}70%{box-shadow:0 0 0 10px rgba(239,68,68,0)}100%{box-shadow:0 0 0 0 rgba(239,68,68,0)}}
+h1{font-size:clamp(1.8rem,6.5vw,2.8rem);line-height:1.12;text-align:center;margin:6px 0 10px;letter-spacing:-.02em}
+h1 span{background:linear-gradient(90deg,var(--gold),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{text-align:center;color:var(--muted);font-size:1.08rem;margin:0 0 20px}
+.video{position:relative;padding-top:56.25%;border-radius:16px;overflow:hidden;background:#000;border:1px solid var(--border);box-shadow:0 0 0 4px rgba(34,197,94,.12),0 20px 50px rgba(0,0,0,.4)}
 .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.jump{display:block;text-align:center;margin:18px 0 6px;font-weight:700;color:var(--accent);text-decoration:underline;font-size:1.1rem}
-h2{font-size:1.6rem;text-align:center;margin:44px 0 18px}
-.cards{display:grid;gap:12px}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 18px}
-.card b{display:block;margin-bottom:4px}
-.card p{margin:0;color:var(--muted)}
+.hint{text-align:center;color:var(--muted);font-size:.85rem;margin:10px 0 0}
+.jump{display:block;text-align:center;margin:14px auto 0;font-weight:800;color:var(--accent);text-decoration:underline;font-size:1.1rem}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:26px}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 6px;text-align:center}
+.stat b{display:block;font-size:1.35rem;color:var(--gold)}
+.stat span{font-size:.78rem;color:var(--muted)}
+h2{font-size:clamp(1.5rem,5vw,2rem);text-align:center;margin:52px 0 6px;letter-spacing:-.01em}
+.lead{text-align:center;color:var(--muted);margin:0 0 20px}
+.grid{display:grid;gap:12px}
+@media(min-width:640px){.grid.three{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px}
+.card .ic{font-size:1.7rem}
+.card b{display:block;margin:6px 0 4px}
+.card p{margin:0;color:var(--muted);font-size:.95rem}
+.step{display:flex;gap:14px;align-items:flex-start}
+.num{flex:none;width:36px;height:36px;border-radius:50%;background:var(--accent);color:var(--accent-text);font-weight:900;display:grid;place-items:center}
 .check{list-style:none;padding:0;margin:0;display:grid;gap:10px}
 .check li{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:12px 14px 12px 44px;position:relative}
-.check li::before{content:"✓";position:absolute;left:14px;top:12px;color:var(--accent);font-weight:900}
-.offer{margin-top:48px;background:var(--surface);border:2px solid var(--accent);border-radius:18px;padding:28px 20px;text-align:center}
-.offer .tag{display:inline-block;background:var(--highlight);color:#111;font-weight:800;border-radius:999px;padding:4px 14px;font-size:.85rem}
+.check li::before{content:"✓";position:absolute;left:15px;top:12px;color:var(--accent);font-weight:900}
+.stars{color:var(--gold);letter-spacing:2px}
+.who{margin-top:8px;font-weight:700;font-size:.9rem}
+details{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 16px}
+summary{cursor:pointer;font-weight:700}
+details p{color:var(--muted);margin:10px 0 0}
+.offer{margin-top:54px;background:linear-gradient(180deg,var(--surface),var(--bg2));border:2px solid var(--accent);border-radius:20px;padding:30px 20px;text-align:center;box-shadow:0 0 40px rgba(34,197,94,.18)}
+.tag{display:inline-block;background:var(--gold);color:#111;font-weight:900;border-radius:999px;padding:5px 16px;font-size:.82rem;letter-spacing:.04em}
 .price-old{color:var(--muted);text-decoration:line-through;margin:14px 0 0}
-.price{font-size:clamp(2.6rem,12vw,4rem);font-weight:900;color:var(--accent);line-height:1.1;margin:4px 0}
-.price small{font-size:.4em;font-weight:700;color:var(--text)}
-.btn{display:block;background:var(--accent);color:var(--accent-text);font-weight:900;font-size:1.2rem;text-decoration:none;padding:18px 20px;border-radius:12px;margin:20px auto 10px;max-width:420px;box-shadow:0 8px 24px rgba(34,197,94,.3);transition:transform .15s}
-.btn:hover{transform:scale(1.03)}
-.note{color:var(--muted);font-size:.9rem;margin:6px 0 0}
-footer{text-align:center;color:var(--muted);font-size:.8rem;padding:30px 0 10px}
+.price{font-size:clamp(3rem,14vw,4.6rem);font-weight:900;color:var(--accent);line-height:1.05;margin:2px 0}
+.price small{font-size:.38em;font-weight:700;color:var(--text)}
+.btn{display:block;background:linear-gradient(180deg,var(--accent),var(--accent2));color:var(--accent-text);font-weight:900;font-size:1.2rem;text-decoration:none;padding:18px 20px;border-radius:14px;margin:20px auto 10px;max-width:440px;box-shadow:0 10px 28px rgba(34,197,94,.35);animation:beat 2s infinite}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.035)}}
+.note{color:var(--muted);font-size:.88rem;margin:6px 0 0}
+.sticky{position:fixed;left:0;right:0;bottom:0;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));background:var(--bg);border-top:1px solid var(--border);display:none;z-index:20}
+.sticky.show{display:block}
+.sticky a{display:block;max-width:480px;margin:0 auto;text-align:center;background:var(--accent);color:var(--accent-text);font-weight:900;text-decoration:none;padding:14px;border-radius:12px}
+.toast{position:fixed;left:12px;bottom:84px;max-width:300px;background:var(--surface);color:var(--text);border:1px solid var(--accent);border-radius:12px;padding:10px 14px;font-size:.88rem;box-shadow:0 10px 30px rgba(0,0,0,.35);transform:translateY(30px);opacity:0;transition:.4s;z-index:30;pointer-events:none}
+.toast.on{transform:none;opacity:1}
+footer{text-align:center;color:var(--muted);font-size:.78rem;padding:30px 0 10px}
+[hidden]{display:none!important}
 </style>
 </head>
 <body>
 <div class="wrap">
 
+  <div class="top">
+    <span class="pill"><span class="dot"></span><span id="online">Pessoas acessando agora</span></span>
+  </div>
+
   <h1>Descubra como <span>transformar seus resultados</span> começando hoje mesmo</h1>
   <p class="sub">Assista ao vídeo abaixo e entenda tudo em poucos minutos.</p>
 
   <div class="video">
-    <iframe src="https://player.vimeo.com/video/1134704010?fl=pl&fe=cm&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Vídeo de apresentação"></iframe>
+    <iframe src="https://player.vimeo.com/video/1134704010?autoplay=1&muted=1&playsinline=1&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Vídeo de apresentação"></iframe>
   </div>
-
-  <p class="note" style="text-align:center;margin-top:10px">O vídeo não carregou? <a href="https://vimeo.com/1134704010?fl=pl&fe=cm" target="_blank" rel="noopener" style="color:var(--accent)">Assista direto no Vimeo</a></p>
-
+  <p class="hint">🔊 O vídeo começa sem som. Toque no ícone de volume para ouvir.</p>
   <a class="jump" href="#comprar">👇 Quero ir direto para a oferta</a>
 
+  <div class="stats">
+    <div class="stat"><b>⚡</b><span>Acesso imediato</span></div>
+    <div class="stat"><b>🔒</b><span>Pagamento seguro</span></div>
+    <div class="stat"><b>💸</b><span>Só R$ 17,90</span></div>
+  </div>
+
   <h2>Por que isso é para você?</h2>
-  <div class="cards">
-    <div class="card"><b>Simples de começar</b><p>Acesso imediato e passo a passo fácil de seguir, mesmo para iniciantes.</p></div>
-    <div class="card"><b>Direto ao ponto</b><p>Sem enrolação: conteúdo prático para você aplicar logo no primeiro dia.</p></div>
-    <div class="card"><b>Preço que cabe no bolso</b><p>Um investimento pequeno para um conteúdo que pode mudar o seu jogo.</p></div>
+  <p class="lead">Feito para quem quer resultado sem complicação.</p>
+  <div class="grid three">
+    <div class="card"><div class="ic">🚀</div><b>Simples de começar</b><p>Passo a passo fácil de seguir, mesmo para iniciantes.</p></div>
+    <div class="card"><div class="ic">🎯</div><b>Direto ao ponto</b><p>Sem enrolação: conteúdo prático para aplicar no primeiro dia.</p></div>
+    <div class="card"><div class="ic">💰</div><b>Preço acessível</b><p>Um investimento pequeno para um conteúdo que pode mudar o seu jogo.</p></div>
+  </div>
+
+  <h2>Como funciona</h2>
+  <div class="grid" style="margin-top:18px">
+    <div class="card step"><div class="num">1</div><div><b>Clique em “Quero garantir”</b><p>Você é levado ao checkout seguro.</p></div></div>
+    <div class="card step"><div class="num">2</div><div><b>Finalize o pagamento</b><p>Escolha a forma de pagamento que preferir.</p></div></div>
+    <div class="card step"><div class="num">3</div><div><b>Receba o acesso</b><p>Liberação imediata após a confirmação.</p></div></div>
   </div>
 
   <h2>O que você recebe</h2>
-  <ul class="check">
+  <ul class="check" style="margin-top:18px">
     <li>Acesso imediato após a confirmação do pagamento</li>
     <li>Conteúdo completo e organizado</li>
     <li>Pagamento 100% seguro</li>
     <li>Suporte para tirar suas dúvidas</li>
   </ul>
+
+  <section id="provas" hidden>
+    <h2>O que quem já comprou diz</h2>
+    <div class="grid three" id="provasList" style="margin-top:18px"></div>
+  </section>
+
+  <h2>Perguntas frequentes</h2>
+  <div class="grid" style="margin-top:18px">
+    <details><summary>Como recebo o acesso?</summary><p>Logo após a confirmação do pagamento, o acesso é liberado.</p></details>
+    <details><summary>O pagamento é seguro?</summary><p>Sim. O pagamento é processado em um checkout seguro.</p></details>
+    <details><summary>Preciso ter experiência?</summary><p>Não. O conteúdo foi pensado para quem está começando.</p></details>
+  </div>
 
   <section class="offer" id="comprar">
     <span class="tag">OFERTA ESPECIAL</span>
@@ -90,5 +143,56 @@ footer{text-align:center;color:var(--muted);font-size:.8rem;padding:30px 0 10px}
 
   <footer>© Todos os direitos reservados.</footer>
 </div>
+
+<div class="sticky" id="sticky"><a href="#comprar">QUERO GARANTIR POR R$ 17,90</a></div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ====== EDITE AQUI COM DADOS REAIS ======
+   DEPOIMENTOS: depoimentos reais de clientes. Se ficar vazio, a seção não aparece.
+   COMPRAS: compras reais recentes (veja no painel da Cakto). Se ficar vazio, o aviso não aparece.
+   VISITANTES: deixe null para esconder, ou coloque um número real. */
+var DEPOIMENTOS = [
+  // {nome:"Maria S.", texto:"Escreva aqui o depoimento real."}
+];
+var COMPRAS = [
+  // {nome:"João", cidade:"Itajaí/SC", tempo:"há 3 minutos"}
+];
+var VISITANTES = null;
+
+(function(){
+  var p=document.getElementById("provas"), l=document.getElementById("provasList");
+  if(DEPOIMENTOS.length){
+    DEPOIMENTOS.forEach(function(d){
+      var c=document.createElement("div"); c.className="card";
+      var s=document.createElement("div"); s.className="stars"; s.textContent="★★★★★";
+      var t=document.createElement("p"); t.textContent="“"+d.texto+"”";
+      var w=document.createElement("div"); w.className="who"; w.textContent=d.nome;
+      c.appendChild(s); c.appendChild(t); c.appendChild(w); l.appendChild(c);
+    });
+    p.hidden=false;
+  }
+  var o=document.getElementById("online");
+  if(VISITANTES){ o.textContent=VISITANTES+" pessoas acessando agora"; } else { o.parentNode.hidden=true; }
+
+  var st=document.getElementById("sticky"), offer=document.getElementById("comprar"), pastVideo=false, inOffer=false;
+  function upd(){ st.classList.toggle("show", pastVideo && !inOffer); }
+  window.addEventListener("scroll",function(){ pastVideo=window.scrollY>500; upd(); },{passive:true});
+  if("IntersectionObserver" in window){
+    new IntersectionObserver(function(e){ inOffer=e[0].isIntersecting; upd(); }).observe(offer);
+  }
+
+  if(COMPRAS.length){
+    var tt=document.getElementById("toast"), i=0;
+    function show(){
+      var c=COMPRAS[i%COMPRAS.length]; i++;
+      tt.textContent="🛒 "+c.nome+(c.cidade?" de "+c.cidade:"")+" acabou de comprar • "+c.tempo;
+      tt.classList.add("on");
+      setTimeout(function(){ tt.classList.remove("on"); },5000);
+    }
+    setTimeout(function(){ show(); setInterval(show,12000); },4000);
+  }
+})();
+</script>
 </body>
 </html>
